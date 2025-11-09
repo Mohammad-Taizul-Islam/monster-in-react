@@ -6,14 +6,16 @@ const Counter = () => {
   const decrement = () => setCount(count - 1 < 0 ? 0 : count - 1);
   const reset = () => setCount(0);
   return (
-    <div>
-      <h1>{count}</h1>
-      <div className="button-container">
+    <>
+      <div className="container">
+        <h1 className="number">{count}</h1>
+      </div>
+      <section className="btns-container">
         <button onClick={increment}>+</button>
         <button onClick={decrement}>-</button>
         <button onClick={reset}>R</button>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
