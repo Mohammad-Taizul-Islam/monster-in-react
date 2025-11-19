@@ -1,0 +1,39 @@
+body{
+  background-color: rgb(47,97,80);
+}
+
+.joke-container{
+  width: auto;
+  height: auto;
+  margin: auto;
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: bisque;
+}
+
+h1{
+  text-align: center;
+  color: aquamarine;
+}
+
+button{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #70a03a;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color .5s;
+}
+
+button:hover{
+  background-color: #c1f590;
+}
+
+button:active{
+  background-color: #297910;
+}
