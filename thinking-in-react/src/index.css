@@ -1,0 +1,42 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+label{
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.table{
+  border: 2px solid lavender;
+}
+.searchBar{
+  border: 2px solid blue;
+  padding: 3px;
+}
+.searchBar input[type='text']{
+  padding: 5px 5px;
+}
+
+.filterProTab{
+  border: 3px solid grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+td{
+  border: 2px solid yellow;
+}
+
+tbody{
+  border: 2px solid lavenderblush;
+  padding: 5px;
+}
