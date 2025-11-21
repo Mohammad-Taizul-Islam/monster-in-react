@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-container {
+    padding: 10px;
+    display: block;
+    align-items: center;
+    text-align: center;
+
+}
+
+.quiz-container textarea {
+    columns: 10;
+}

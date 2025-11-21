@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Quiz</title>
+    <style></style>
+  </head>
+  <body>
+    <form id="form">
+      <h2>City quiz</h2>
+      <p>What city have billboard air to drinkable water system ?</p>
+      <textarea name="textarea" id="textarea"> </textarea>
+      <br />
+      <button id="button" type="submit" disabled>Submit</button>
+      <p id="loading" style="display: none">Loading...</p>
+      <p id="error" style="display: none; color: red"></p>
+    </form>
+
+    <h1 id="success" style="display: none">That's right</h1>
+    <script>
+      const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        disable(textarea);
+        disable(button);
+        show(loadingMessage);
+        hide(errorMessage);
+        try {
+          await submitForm(textarea.value);
+          show(successMessage);
+          hide(form);
+        } catch (err) {
+          show(errorMessage);
+          errorMessage.textContent = err.message;
+        } finally {
+          hide(loadingMessage);
+          enable(textarea);
+          enable(button);
+          // Reset the form after submission
+          textarea.value = "";
+          handleTextareaChange(); // Update button state
+        }
+      };
+
+      const handleTextareaChange = () => {
+        if (textarea.value.trim().length === 0) {
+          disable(button);
+        } else {
+          enable(button);
+        }
+      };
+
+      const hide = (el) => {
+        el.style.display = "none";
+      };
+
+      const show = (el) => {
+        el.style.display = "";
+      };
+
+      // FIXED: Changed el.disable to el.disabled
+      const enable = (el) => {
+        el.disabled = false;
+      };
+
+      const disable = (el) => {
+        el.disabled = true;
+      };
+
+      const submitForm = (answer) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (answer.trim().toLowerCase() === "lima") {
+              resolve();
+            } else {
+              reject(new Error("Good guess but a wrong answer. Try again!"));
+            }
+          }, 2000);
+        });
+      };
+
+      // Get DOM elements
+      const form = document.getElementById("form");
+      const textarea = document.getElementById("textarea");
+      const button = document.getElementById("button");
+      const loadingMessage = document.getElementById("loading");
+      const errorMessage = document.getElementById("error");
+      const successMessage = document.getElementById("success");
+
+      // Set up event listeners
+      form.onsubmit = handleFormSubmit;
+      textarea.oninput = handleTextareaChange;
+
+      // Initialize button state
+      handleTextareaChange();
+    </script>
+  </body>
+</html>
